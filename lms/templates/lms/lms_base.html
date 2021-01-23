@@ -72,10 +72,12 @@
       <nav class="sticky" id="nav-sidebar">
         <div class="app-course module">
           <table>
-            <caption>
-              <a href="/" class="section" title="Home">Home</a>
-            </caption>
+            
             <tbody>
+              <tr class="model-user">
+                <th scope="row"><a href="/">HOME</a></th>
+                <td><a href="/" ></a></td>
+              </tr>
               <tr class="model-group">
                 <th scope="row"><a href="{% url 'assignments:assignment_home' %}">Assignments</a></th>
                 <td><a href="{% url 'assignments:assignment_create' %}" class="addlink">Add</a></td>
