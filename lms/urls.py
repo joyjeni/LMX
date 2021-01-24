@@ -2,6 +2,9 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 # LMS app imports
 from lms.views.account.login_view import UserLoginView
@@ -37,6 +40,13 @@ from lms.views.course.settings_view import (
 from lms.views.course.mail_to_admin_view import (
     MailToAdminView
     
+from lms.views.dashboard.dashboard_views import (
+    DashboardHomeView,
+    DashboardProfileView,
+)
+
+from lms.views.notification.notification_settings_view import (
+    NotificationSettingsView,
 )
 
 from lms.views.course.group_creation_view import (
@@ -45,6 +55,7 @@ from lms.views.course.group_creation_view import (
     ViewGroupsView
 )
 
+
 from lms.views.dashboard.dashboard_views import (
     DashboardHomeView,
     DashboardProfileView,
@@ -52,6 +63,18 @@ from lms.views.dashboard.dashboard_views import (
 from lms.views.notification.notification_settings_view import (
     NotificationSettingsView,
 )
+from lms.views.blog.blog_view import (
+    PostListView,
+    PostDetailView,
+    PostCreateView,
+    PostUpdateView,
+    PostDeleteView,
+    UserPostListView,
+)
+
+from lms.views.account.logout_view import UserLogoutView
+from lms.views.account.login_view import UserLoginView
+
 
 # Specifies the app name for name spacing.
 app_name = "lms"
@@ -100,13 +123,12 @@ urlpatterns = [
         view=PostUpdateView.as_view(),
         name='post-update'
     ),
-
     path(
         route='blog/post/<int:pk>/delete/',
         view=PostDeleteView.as_view(),
         name='post-delete'
-    ),
 
+    ),
     # ACCOUNT URLS #
 
     # /account/login/
@@ -220,9 +242,7 @@ urlpatterns = [
         route="course/<int:pk>/mail_to_admin",
         view=MailToAdminView.as_view(),
         name="mail_to_admin"
-    ),
-
-   
+    )
 ]
 
 if settings.DEBUG:

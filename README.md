@@ -1,8 +1,21 @@
 ## LMX - EPAi CapStone
 
-Upgraded Replica of Canvas LMS
 
-Group Task
+Integrated the following modules
+=================================
+1. Course Dashbaord 
+2. Course Page Home 
+3. Assignment 
+
+Group Members
+==============
+1. Sujit Ojha 
+2. Nihar Kanungo
+3. Jenisha Thankaraj
+4. Manjunath Yellipeta
+
+
+Upgraded Replica of Canvas LMS
 
 ```
 The Course Dashboard (logged in) Objectives:

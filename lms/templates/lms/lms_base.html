@@ -1,8 +1,8 @@
 <!-- {% load static %}
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
 
+<head>
     <!-- Meta Tags -->
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,8 +30,9 @@
       <link href="{% static 'blog/css/blog.css' %}" rel="stylesheet">
     {% endblock stylesheet %}
 </head>
-
-<body>
+ <body class="app-auth model-group change-list" data-admin-utc-offset="19800">
+ <!-- Container -->
+  <div id="container">  
 
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -81,24 +82,119 @@
                      </button>
                   </div>
                 {% endfor %}
-              {% endif %}
+             {% endif %}
+            </div>
+            </div>
+          </div>
         </div>
+      </nav><!-- nav -->
+    </header>
+    <div class="breadcrumbs">
+    </div>
+    <div class="main shifted" id="main">
+
+      <button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Toggle navigation">
+      </button>
+      <nav class="sticky" id="nav-sidebar">
+        <div class="app-course module">
+          <table>
+            
+            <tbody>
+              <tr class="model-user">
+                <th scope="row"><a href="/">HOME</a></th>
+                <td><a href="/" ></a></td>
+              </tr>
+              <tr class="model-group">
+                <th scope="row"><a href="{% url 'assignments:assignment_home' %}">Assignments</a></th>
+                <td><a href="{% url 'assignments:assignment_create' %}" class="addlink">Add</a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Quizes</a></th>
+                <td><a href="/" class="addlink">Add</a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Discussions</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Announcements</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Grades</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Pages</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">People</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Syllabus</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Analytics</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+              <tr class="model-user">
+                <th scope="row"><a href="/">Settings</a></th>
+                <td><a href="#"> </a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </nav>
+      <div class="content">
+
+        {% block content %}
+        {% endblock content %}
+
+        <!-- Messages -->
+        {% block messages %}
+        <div id="content" class="flex">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="text-center font-weight-bold alert alert-dismissible fade show
+                      {% if message.level_tag == 'error' %}
+                      alert-danger
+                      {% else %}
+                      alert-{{ message.tags }}
+                      {% endif %}">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+        {% endblock messages %}
+
       </div>
-      {% endblock messages %}
 
-    {% block content %}
-    {% endblock content %}
+    </div>
 
 
+  </div>
+
+ <br class="clear">
+  <div id="footer">
     {% block footer %}
+    {% endblock footer %}
+  </div>
+  <!-- SCRIPTS -->
+  {% block scripts %}
+  <script src="{% static 'lms/js/jquery-3.5.1.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+  {% endblock scripts %}
 
- {% endblock footer %}
-
-    <!-- SCRIPTS -->
- {% block scripts %}
-	<script src="{% static 'lms/js/jquery-3.5.1.min.js' %}"></script>
-	<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
- {% endblock scripts %}
+  </div>
+{% endblock footer %}
 </body>
 </html> 
+

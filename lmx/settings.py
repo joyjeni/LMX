@@ -49,10 +49,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 
-
-
-    # My apps
+  # My apps
     'lms.apps.LmsConfig',
+    'assignments'
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -189,4 +188,3 @@ CKEDITOR_CONFIGS = {
 
 # SOCIAL_AUTH_GITHUB_KEY = env('SOCIAL_AUTH_GITHUB_KEY')
 # SOCIAL_AUTH_GITHUB_SECRET = env('SOCIAL_AUTH_GITHUB_SECRET')
-
